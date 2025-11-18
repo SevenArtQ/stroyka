@@ -22,8 +22,8 @@ git commit -m "Initial commit: проект готов к деплою"
 # 4. Переименование ветки в main
 git branch -M main
 
-# 5. Подключение к GitHub (токен уже включен)
-git remote add origin https://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@github.com/SevenArtQ/stroyka.git
+# 5. Подключение к GitHub
+git remote add origin https://github.com/SevenArtQ/stroyka.git
 
 # 6. Отправка на GitHub
 git push -u origin main
@@ -37,7 +37,7 @@ git push -u origin main
 
 ```bash
 git remote remove origin
-git remote add origin https://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@github.com/SevenArtQ/stroyka.git
+git remote add origin https://github.com/SevenArtQ/stroyka.git
 git push -u origin main
 ```
 
@@ -46,6 +46,6 @@ git push -u origin main
 ## Все в одной команде:
 
 ```bash
-cd "/Users/vsevolodaleksandrovicgurenko/Documents/артема родионова /stroyka" && git init && git add . && git commit -m "Initial commit" && git branch -M main && git remote add origin https://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@github.com/SevenArtQ/stroyka.git 2>/dev/null || git remote set-url origin https://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@github.com/SevenArtQ/stroyka.git && git push -u origin main
+cd "/Users/vsevolodaleksandrovicgurenko/Documents/артема родионова /stroyka" && git init && git add . && git commit -m "Initial commit" && git branch -M main && git remote add origin https://github.com/SevenArtQ/stroyka.git 2>/dev/null || git remote set-url origin https://github.com/SevenArtQ/stroyka.git && git push -u origin main
 ```
 

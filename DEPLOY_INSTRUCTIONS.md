@@ -31,7 +31,7 @@ git commit -m "Deploy to GitHub Pages"
 git branch -M main
 
 # Подключение к GitHub (токен уже включен)
-git remote add origin https://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@github.com/SevenArtQ/stroyka.git
+git remote add origin https://github.com/SevenArtQ/stroyka.git
 
 # Отправка на GitHub
 git push -u origin main

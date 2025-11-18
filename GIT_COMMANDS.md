@@ -18,7 +18,7 @@ git commit -m "Initial commit: проект готов к деплою"
 git branch -M main
 
 # Подключение к удаленному репозиторию
-git remote add origin https://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@github.com/SevenArtQ/stroyka.git
+git remote add origin https://github.com/SevenArtQ/stroyka.git
 
 # Отправка на GitHub
 git push -u origin main
@@ -131,7 +131,7 @@ git init
 git remote remove origin
 
 # Добавить новый
-git remote add origin https://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@github.com/SevenArtQ/stroyka.git
+git remote add origin https://github.com/SevenArtQ/stroyka.git
 ```
 
 ### Ошибка: "xcode-select: note: No developer tools"

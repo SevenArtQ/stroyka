@@ -34,10 +34,10 @@ git branch -M main
 # Настройка remote (если еще не настроен)
 if ! git remote get-url origin &> /dev/null; then
     echo "🔗 Настраиваю remote..."
-    git remote add origin https://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@github.com/SevenArtQ/stroyka.git
+    git remote add origin https://github.com/SevenArtQ/stroyka.git
 else
     echo "🔄 Обновляю remote URL..."
-    git remote set-url origin https://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@github.com/SevenArtQ/stroyka.git
+    git remote set-url origin https://github.com/SevenArtQ/stroyka.git
 fi
 
 # Push
