@@ -23,7 +23,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+<<<<<<< HEAD
       - name: Setup Node.js
+=======
+      - name: Setup Node
+>>>>>>> b9f14b405196c133c46637f6814c3095e64563a6
         uses: actions/setup-node@v4
         with:
           node-version: '18'
@@ -34,6 +38,11 @@ jobs:
 
       - name: Build
         run: npm run build
+<<<<<<< HEAD
+=======
+        env:
+          NODE_ENV: production
+>>>>>>> b9f14b405196c133c46637f6814c3095e64563a6
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -53,3 +62,7 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+<<<<<<< HEAD
+=======
+
+>>>>>>> b9f14b405196c133c46637f6814c3095e64563a6

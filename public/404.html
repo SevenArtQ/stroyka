@@ -5,6 +5,7 @@
     <title>СТРОЙКА - Строительная компания</title>
     <script>
       // Single Page Apps for GitHub Pages
+<<<<<<< HEAD
       // Редирект для работы React Router на GitHub Pages
       (function() {
         var path = window.location.pathname;
@@ -44,11 +45,37 @@
         
         redirectPath += search + hash;
         window.location.replace(redirectPath);
+=======
+      // https://github.com/rafgraph/spa-github-pages
+      // This script takes the current url and converts the path and query
+      // string into just a path portion and then redirects the browser
+      // to that new path with a 301 redirect.
+      (function() {
+        var path = window.location.pathname;
+        var segments = path.split('/').filter(function(segment) {
+          return segment !== '';
+        });
+        var repo = segments[0];
+        var pathToRedirect = '/' + repo + '/';
+        if (segments.length > 1) {
+          pathToRedirect += segments.slice(1).join('/');
+        }
+        if (window.location.search) {
+          pathToRedirect += window.location.search;
+        }
+        if (pathToRedirect !== path) {
+          window.location.replace(pathToRedirect);
+        }
+>>>>>>> b9f14b405196c133c46637f6814c3095e64563a6
       })();
     </script>
   </head>
   <body>
+<<<<<<< HEAD
     <p>Перенаправление...</p>
+=======
+    <p>Redirecting...</p>
+>>>>>>> b9f14b405196c133c46637f6814c3095e64563a6
   </body>
 </html>
 

@@ -14,6 +14,7 @@
   left: 0;
   right: 0;
   bottom: 0;
+<<<<<<< HEAD
   background: 
     radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 70%),
     repeating-linear-gradient(
@@ -56,6 +57,10 @@
   50% {
     opacity: 0.7;
   }
+=======
+  background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+>>>>>>> b9f14b405196c133c46637f6814c3095e64563a6
 }
 
 .hero-overlay {
@@ -232,6 +237,7 @@
 
 .about {
   background-color: var(--bg-white);
+<<<<<<< HEAD
   position: relative;
   overflow: hidden;
 }
@@ -260,6 +266,8 @@
 .about .container {
   position: relative;
   z-index: 1;
+=======
+>>>>>>> b9f14b405196c133c46637f6814c3095e64563a6
 }
 
 .about-content {
@@ -327,6 +335,7 @@
 
 .services {
   background-color: var(--bg-light);
+<<<<<<< HEAD
   position: relative;
   overflow: hidden;
 }
@@ -368,6 +377,8 @@
 .services .container {
   position: relative;
   z-index: 1;
+=======
+>>>>>>> b9f14b405196c133c46637f6814c3095e64563a6
 }
 
 .services-grid {
@@ -384,6 +395,7 @@
   box-shadow: var(--shadow);
   transition: all 0.4s ease;
   border: 1px solid var(--border-color);
+<<<<<<< HEAD
   opacity: 0;
   transform: translateY(30px);
 }
@@ -398,6 +410,8 @@
     opacity: 1;
     transform: translateY(0);
   }
+=======
+>>>>>>> b9f14b405196c133c46637f6814c3095e64563a6
 }
 
 .service-card:hover {
@@ -444,6 +458,7 @@
 
 .portfolio-section {
   background-color: var(--bg-white);
+<<<<<<< HEAD
   position: relative;
   overflow: hidden;
 }
@@ -472,6 +487,8 @@
 .portfolio-section .container {
   position: relative;
   z-index: 1;
+=======
+>>>>>>> b9f14b405196c133c46637f6814c3095e64563a6
 }
 
 .portfolio-grid {
@@ -487,6 +504,7 @@
   box-shadow: var(--shadow);
   transition: all 0.4s ease;
   border: 1px solid var(--border-color);
+<<<<<<< HEAD
   opacity: 0;
   transform: translateY(30px);
 }
@@ -494,6 +512,8 @@
 .portfolio-section.visible .portfolio-card {
   animation: fadeInUp 0.6s ease-out forwards;
   animation-delay: calc(var(--index, 0) * 0.1s);
+=======
+>>>>>>> b9f14b405196c133c46637f6814c3095e64563a6
 }
 
 .portfolio-card:hover {
@@ -554,6 +574,7 @@
 
 .testimonials-section {
   background-color: var(--bg-light);
+<<<<<<< HEAD
   position: relative;
   overflow: hidden;
 }
@@ -582,6 +603,8 @@
 .testimonials-section .container {
   position: relative;
   z-index: 1;
+=======
+>>>>>>> b9f14b405196c133c46637f6814c3095e64563a6
 }
 
 .testimonials-grid {
@@ -650,6 +673,7 @@
 
 .contact-section {
   background-color: var(--bg-white);
+<<<<<<< HEAD
   position: relative;
   overflow: hidden;
 }
@@ -691,6 +715,8 @@
 .contact-section .container {
   position: relative;
   z-index: 1;
+=======
+>>>>>>> b9f14b405196c133c46637f6814c3095e64563a6
 }
 
 .contact-content {

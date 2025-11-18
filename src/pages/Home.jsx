@@ -1,15 +1,22 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
+=======
+import { useState, useEffect } from 'react'
+>>>>>>> b9f14b405196c133c46637f6814c3095e64563a6
 import './Home.css'
 
 function Home() {
   const [isVisible, setIsVisible] = useState(false)
+<<<<<<< HEAD
   const [aboutRef, aboutVisible] = useScrollAnimation()
   const [servicesRef, servicesVisible] = useScrollAnimation()
   const [portfolioRef, portfolioVisible] = useScrollAnimation()
   const [testimonialsRef, testimonialsVisible] = useScrollAnimation()
   const [contactRef, contactVisible] = useScrollAnimation()
+=======
+>>>>>>> b9f14b405196c133c46637f6814c3095e64563a6
 
   useEffect(() => {
     setIsVisible(true)
@@ -69,7 +76,11 @@ function Home() {
             </p>
             <div className="hero-buttons">
               <a href="#contact" className="btn btn-primary">Связаться с нами</a>
+<<<<<<< HEAD
               <Link to="/shop" className="btn btn-secondary">Магазин материалов</Link>
+=======
+              <a href="/shop" className="btn btn-secondary">Магазин материалов</a>
+>>>>>>> b9f14b405196c133c46637f6814c3095e64563a6
             </div>
           </div>
         </div>
@@ -89,7 +100,11 @@ function Home() {
         </div>
       </section>
 
+<<<<<<< HEAD
       <section ref={aboutRef} className={`section about fade-in-up ${aboutVisible ? 'visible' : ''}`}>
+=======
+      <section className="section about">
+>>>>>>> b9f14b405196c133c46637f6814c3095e64563a6
         <div className="container">
           <div className="section-header">
             <span className="section-badge">О нас</span>
@@ -138,7 +153,11 @@ function Home() {
         </div>
       </section>
 
+<<<<<<< HEAD
       <section ref={servicesRef} className={`section services fade-in-up ${servicesVisible ? 'visible' : ''}`}>
+=======
+      <section className="section services">
+>>>>>>> b9f14b405196c133c46637f6814c3095e64563a6
         <div className="container">
           <div className="section-header">
             <span className="section-badge">Услуги</span>
@@ -148,25 +167,41 @@ function Home() {
             </p>
           </div>
           <div className="services-grid">
+<<<<<<< HEAD
             <div className="service-card" style={{ '--index': 0 }}>
+=======
+            <div className="service-card">
+>>>>>>> b9f14b405196c133c46637f6814c3095e64563a6
               <div className="service-icon icon-building"></div>
               <h3>Строительство</h3>
               <p>Возведение зданий и сооружений любой сложности</p>
               <a href="#contact" className="service-link">Узнать больше →</a>
             </div>
+<<<<<<< HEAD
             <div className="service-card" style={{ '--index': 1 }}>
+=======
+            <div className="service-card">
+>>>>>>> b9f14b405196c133c46637f6814c3095e64563a6
               <div className="service-icon icon-tools"></div>
               <h3>Ремонт</h3>
               <p>Капитальный и косметический ремонт помещений</p>
               <a href="#contact" className="service-link">Узнать больше →</a>
             </div>
+<<<<<<< HEAD
             <div className="service-card" style={{ '--index': 2 }}>
+=======
+            <div className="service-card">
+>>>>>>> b9f14b405196c133c46637f6814c3095e64563a6
               <div className="service-icon icon-design"></div>
               <h3>Проектирование</h3>
               <p>Разработка проектной документации</p>
               <a href="#contact" className="service-link">Узнать больше →</a>
             </div>
+<<<<<<< HEAD
             <div className="service-card" style={{ '--index': 3 }}>
+=======
+            <div className="service-card">
+>>>>>>> b9f14b405196c133c46637f6814c3095e64563a6
               <div className="service-icon icon-finish"></div>
               <h3>Отделка</h3>
               <p>Внутренняя и внешняя отделка помещений</p>
@@ -176,7 +211,11 @@ function Home() {
         </div>
       </section>
 
+<<<<<<< HEAD
       <section ref={portfolioRef} className={`section portfolio-section fade-in-up ${portfolioVisible ? 'visible' : ''}`}>
+=======
+      <section className="section portfolio-section">
+>>>>>>> b9f14b405196c133c46637f6814c3095e64563a6
         <div className="container">
           <div className="section-header">
             <span className="section-badge">Портфолио</span>
@@ -186,8 +225,13 @@ function Home() {
             </p>
           </div>
           <div className="portfolio-grid">
+<<<<<<< HEAD
             {portfolio.map((project, index) => (
               <div key={project.id} className="portfolio-card" style={{ '--index': index }}>
+=======
+            {portfolio.map((project) => (
+              <div key={project.id} className="portfolio-card">
+>>>>>>> b9f14b405196c133c46637f6814c3095e64563a6
                 <div className="portfolio-image">
                   <div className="portfolio-overlay">
                     <span className="portfolio-year">{project.year}</span>
@@ -203,7 +247,11 @@ function Home() {
         </div>
       </section>
 
+<<<<<<< HEAD
       <section ref={testimonialsRef} className={`section testimonials-section fade-in-up ${testimonialsVisible ? 'visible' : ''}`}>
+=======
+      <section className="section testimonials-section">
+>>>>>>> b9f14b405196c133c46637f6814c3095e64563a6
         <div className="container">
           <div className="section-header">
             <span className="section-badge">Отзывы</span>
@@ -234,7 +282,11 @@ function Home() {
         </div>
       </section>
 
+<<<<<<< HEAD
       <section id="contact" ref={contactRef} className={`section contact-section fade-in-up ${contactVisible ? 'visible' : ''}`}>
+=======
+      <section id="contact" className="section contact-section">
+>>>>>>> b9f14b405196c133c46637f6814c3095e64563a6
         <div className="container">
           <div className="section-header">
             <span className="section-badge">Контакты</span>

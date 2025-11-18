@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
+=======
+>>>>>>> b9f14b405196c133c46637f6814c3095e64563a6
 * {
   margin: 0;
   padding: 0;
@@ -30,6 +33,11 @@ html {
   --gradient-accent: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
 }
 
+<<<<<<< HEAD
+=======
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+>>>>>>> b9f14b405196c133c46637f6814c3095e64563a6
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -113,6 +121,7 @@ button {
   }
 }
 
+<<<<<<< HEAD
 /* Скролл-анимации */
 section.fade-in-up {
   opacity: 0;
@@ -125,6 +134,8 @@ section.fade-in-up.visible {
   transform: translateY(0);
 }
 
+=======
+>>>>>>> b9f14b405196c133c46637f6814c3095e64563a6
 /* Адаптивные breakpoints */
 @media (max-width: 1440px) {
   .container {
