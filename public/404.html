@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>СТРОЙКА - Строительная компания</title>
+    <script>
+      // Single Page Apps for GitHub Pages
+      // Редирект для работы React Router на GitHub Pages
+      (function() {
+        var path = window.location.pathname;
+        var repo = 'stroyka';
+        var basePath = '/' + repo + '/';
+        
+        // Сохраняем query string и hash
+        var search = window.location.search || '';
+        var hash = window.location.hash || '';
+        
+        // Если путь не начинается с basePath, добавляем его
+        if (!path.startsWith(basePath)) {
+          // Извлекаем путь после репозитория или используем текущий путь
+          var pathSegments = path.split('/').filter(function(seg) {
+            return seg && seg !== '';
+          });
+          
+          // Если первый сегмент - это название репозитория, убираем его
+          if (pathSegments[0] === repo) {
+            pathSegments.shift();
+          }
+          
+          // Формируем новый путь
+          var newPath = basePath;
+          if (pathSegments.length > 0) {
+            newPath += pathSegments.join('/');
+          }
+          path = newPath;
+        }
+        
+        // Редирект на index.html с сохранением пути
+        var redirectPath = basePath + 'index.html';
+        if (path !== basePath && path !== basePath + 'index.html') {
+          // Сохраняем путь в sessionStorage для React Router
+          sessionStorage.setItem('redirectPath', path);
+        }
+        
+        redirectPath += search + hash;
+        window.location.replace(redirectPath);
+      })();
+    </script>
+  </head>
+  <body>
+    <p>Перенаправление...</p>
+  </body>
+</html>
+
