@@ -173,22 +173,22 @@ function Shop() {
 
   // Формирование текста заказа
   const formatOrderMessage = () => {
-    let message = '🛒 *НОВЫЙ ЗАКАЗ*\n\n'
-    message += `👤 *Клиент:* ${orderForm.name || 'Не указано'}\n`
-    message += `📞 *Телефон:* ${orderForm.phone || 'Не указано'}\n`
-    message += `📍 *Адрес:* ${orderForm.address || 'Не указано'}\n`
+    let message = '*НОВЫЙ ЗАКАЗ*\n\n'
+    message += `*Клиент:* ${orderForm.name || 'Не указано'}\n`
+    message += `*Телефон:* ${orderForm.phone || 'Не указано'}\n`
+    message += `*Адрес:* ${orderForm.address || 'Не указано'}\n`
     if (orderForm.comment) {
-      message += `💬 *Комментарий:* ${orderForm.comment}\n`
+      message += `*Комментарий:* ${orderForm.comment}\n`
     }
-    message += '\n📦 *Товары:*\n'
+    message += '\n*Товары:*\n'
     cart.forEach((item, index) => {
       const quantity = item.quantity || 1
       const itemTotal = item.price * quantity
       message += `${index + 1}. ${item.name}\n`
       message += `   Цена: ${item.price.toLocaleString()} ₽ × ${quantity} = ${itemTotal.toLocaleString()} ₽\n\n`
     })
-    message += `💰 *ИТОГО: ${totalPrice.toLocaleString()} ₽*\n`
-    message += `📊 *Всего товаров: ${totalItems} шт.*`
+    message += `*ИТОГО: ${totalPrice.toLocaleString()} ₽*\n`
+    message += `*Всего товаров: ${totalItems} шт.*`
     return message
   }
 
@@ -515,14 +515,14 @@ function Shop() {
                     className="order-btn telegram-btn"
                     onClick={() => handleOrderSubmit('telegram')}
                   >
-                    📱 Отправить в Telegram
+                    Отправить в Telegram
                   </button>
                   <button
                     type="button"
                     className="order-btn whatsapp-btn"
                     onClick={() => handleOrderSubmit('whatsapp')}
                   >
-                    💬 Отправить в WhatsApp
+                    Отправить в WhatsApp
                   </button>
                 </div>
               </form>
