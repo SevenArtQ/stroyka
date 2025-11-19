@@ -24,19 +24,34 @@ function RedirectHandler() {
   useEffect(() => {
     // Проверяем, был ли редирект через 404.html
     const redirectPath = sessionStorage.getItem('ghp_redirect')
-    if (redirectPath) {
+    if (redirectPath && redirectPath !== 'shop') {
       // Очищаем sessionStorage
       sessionStorage.removeItem('ghp_redirect')
       // Навигируем на правильный путь
       navigate('/' + redirectPath, { replace: true })
-    } else {
-      // Убеждаемся, что при первой загрузке открывается главная страница
-      const currentPath = window.location.pathname
-      const basename = getBasename()
-      const basePath = basename ? basename : ''
-      
-      // Если путь пустой или только базовый путь, переходим на главную
-      if (currentPath === basePath || currentPath === basePath + '/' || currentPath === '/') {
+      return
+    }
+    
+    // Если был редирект на shop, но мы хотим главную - игнорируем
+    if (redirectPath === 'shop') {
+      sessionStorage.removeItem('ghp_redirect')
+    }
+    
+    // Убеждаемся, что при первой загрузке открывается главная страница
+    const currentPath = window.location.pathname
+    const basename = getBasename()
+    
+    // Нормализуем путь - убираем базовый путь если есть
+    let normalizedPath = currentPath
+    if (basename && currentPath.startsWith(basename)) {
+      normalizedPath = currentPath.substring(basename.length)
+    }
+    
+    // Если путь пустой, только слэш, или index.html - переходим на главную
+    // НЕ переходим на shop автоматически
+    if (!normalizedPath || normalizedPath === '/' || normalizedPath === '/index.html' || normalizedPath === '') {
+      // Проверяем, что мы не на shop странице
+      if (!normalizedPath.includes('shop')) {
         navigate('/', { replace: true })
       }
     }

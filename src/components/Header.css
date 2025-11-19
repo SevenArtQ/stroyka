@@ -241,14 +241,49 @@
   }
 }
 
-/* Десктоп - скрываем кнопку меню */
-.menu-toggle {
-  display: none;
-}
-
+/* Десктоп - скрываем кнопку меню и показываем обычное меню */
 @media (min-width: 769px) {
+  .menu-toggle {
+    display: none !important;
+  }
+  
   .nav-links {
     display: flex !important;
+    position: static !important;
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    box-shadow: none !important;
+    border-top: none !important;
+    padding: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  
+  .nav-links a {
+    padding: 8px 0 !important;
+    border-bottom: none !important;
+    text-align: left !important;
+    background: transparent !important;
+    border-left: none !important;
+  }
+  
+  .nav-links a:hover {
+    padding-left: 0 !important;
+    background: transparent !important;
+  }
+  
+  .nav-links a.active {
+    background: transparent !important;
+    border-left: none !important;
+  }
+  
+  .nav-links a.active::after {
+    display: block !important;
+  }
+  
+  .menu-overlay {
+    display: none !important;
   }
 }
 
