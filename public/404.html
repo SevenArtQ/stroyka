@@ -15,35 +15,40 @@
         var search = window.location.search || '';
         var hash = window.location.hash || '';
         
-        // Если путь не начинается с basePath, добавляем его
-        if (!path.startsWith(basePath)) {
-          // Извлекаем путь после репозитория или используем текущий путь
+        // Если путь уже содержит basePath (например /stroyka/shop)
+        if (path.startsWith(basePath)) {
+          // Извлекаем путь после basePath (например "shop" из "/stroyka/shop")
+          var relativePath = path.substring(basePath.length);
+          
+          // Если это не index.html, сохраняем путь для React Router
+          if (relativePath && relativePath !== 'index.html') {
+            // Сохраняем путь в sessionStorage, чтобы React Router мог его использовать
+            sessionStorage.setItem('ghp_redirect', relativePath);
+          }
+          
+          // Редиректим на index.html
+          var redirectPath = basePath + 'index.html' + search + hash;
+          window.location.replace(redirectPath);
+        } else {
+          // Если путь не содержит basePath, добавляем его
           var pathSegments = path.split('/').filter(function(seg) {
             return seg && seg !== '';
-        });
+          });
           
-          // Если первый сегмент - это название репозитория, убираем его
+          // Убираем repo если он есть
           if (pathSegments[0] === repo) {
             pathSegments.shift();
           }
           
-          // Формируем новый путь
-          var newPath = basePath;
+          // Сохраняем путь если он есть
           if (pathSegments.length > 0) {
-            newPath += pathSegments.join('/');
+            sessionStorage.setItem('ghp_redirect', pathSegments.join('/'));
+          }
+          
+          // Редиректим на index.html
+          var redirectPath = basePath + 'index.html' + search + hash;
+          window.location.replace(redirectPath);
         }
-          path = newPath;
-        }
-        
-        // Редирект на index.html с сохранением пути
-        var redirectPath = basePath + 'index.html';
-        if (path !== basePath && path !== basePath + 'index.html') {
-          // Сохраняем путь в sessionStorage для React Router
-          sessionStorage.setItem('redirectPath', path);
-        }
-        
-        redirectPath += search + hash;
-        window.location.replace(redirectPath);
       })();
     </script>
   </head>
