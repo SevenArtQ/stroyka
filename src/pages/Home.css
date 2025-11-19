@@ -30,6 +30,7 @@
   margin: 0 auto;
   position: relative;
   z-index: 1;
+  opacity: 1; /* Контент виден по умолчанию */
 }
 
 .hero-badge {

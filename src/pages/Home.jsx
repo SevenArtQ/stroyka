@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react'
 import './Home.css'
 
 function Home() {
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
 
   useEffect(() => {
+    // Убеждаемся, что контент виден сразу
     setIsVisible(true)
   }, [])
 
