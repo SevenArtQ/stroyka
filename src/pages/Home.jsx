@@ -234,8 +234,8 @@ function Home() {
               <div className="contact-card">
                 <div className="contact-icon icon-phone"></div>
                 <h4>Телефон</h4>
-                <p>+7 (999) 123-45-67</p>
-                <a href="tel:+79991234567" className="contact-link">Позвонить</a>
+                <p>+7 (910) 833-79-77</p>
+                <a href="tel:+79108337977" className="contact-link">Позвонить</a>
               </div>
               <div className="contact-card">
                 <div className="contact-icon icon-email"></div>

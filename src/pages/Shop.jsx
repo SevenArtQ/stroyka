@@ -198,15 +198,15 @@ function Shop() {
   // Отправка в Telegram
   const sendToTelegram = () => {
     const message = formatOrderMessage()
-    const telegramUsername = 'SevenArtQ' // Замените на ваш Telegram username или ID
-    const telegramUrl = `https://t.me/${telegramUsername}?text=${encodeURIComponent(message)}`
+    const phoneNumber = '79108337977' // Номер для Telegram
+    const telegramUrl = `https://t.me/${phoneNumber}?text=${encodeURIComponent(message)}`
     window.open(telegramUrl, '_blank')
   }
 
   // Отправка в WhatsApp
   const sendToWhatsApp = () => {
     const message = formatOrderMessage()
-    const phoneNumber = '79991234567' // Замените на ваш номер телефона (без +)
+    const phoneNumber = '79108337977' // Номер телефона (без +)
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
     window.open(whatsappUrl, '_blank')
   }
@@ -487,7 +487,7 @@ function Shop() {
                     name="phone"
                     value={orderForm.phone}
                     onChange={handleInputChange}
-                    placeholder="+7 (999) 123-45-67"
+                    placeholder="+7 (910) 833-79-77"
                     required
                   />
                 </div>
