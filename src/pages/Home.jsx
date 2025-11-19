@@ -178,6 +178,8 @@ function Home() {
             </p>
           </div>
           <div className="portfolio-grid">
+            {portfolio.map((project) => (
+              <div key={project.id} className="portfolio-card">
                 <div className="portfolio-image">
                   <div className="portfolio-overlay">
                     <span className="portfolio-year">{project.year}</span>
@@ -193,6 +195,7 @@ function Home() {
         </div>
       </section>
 
+      <section className="section testimonials-section">
         <div className="container">
           <div className="section-header">
             <span className="section-badge">Отзывы</span>
@@ -223,6 +226,7 @@ function Home() {
         </div>
       </section>
 
+      <section id="contact" className="section contact-section">
         <div className="container">
           <div className="section-header">
             <span className="section-badge">Контакты</span>
