@@ -83,6 +83,11 @@
   }
 }
 
+/* Бургер-меню скрыто по умолчанию */
+.menu-toggle {
+  display: none;
+}
+
 /* Мобильные устройства */
 @media (max-width: 768px) {
   .header {
@@ -99,6 +104,21 @@
   .logo {
     font-size: 22px;
     letter-spacing: 2px;
+  }
+  
+  /* Показываем бургер-меню на мобильных */
+  .menu-toggle {
+    display: flex !important;
+  }
+  
+  /* Скрываем обычное меню на мобильных */
+  .nav-links {
+    display: none;
+  }
+  
+  /* Показываем меню только когда оно активно */
+  .nav-links.active {
+    display: flex;
   }
 
   .nav-links {
