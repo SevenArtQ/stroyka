@@ -120,6 +120,13 @@ function Shop() {
   const [searchQuery, setSearchQuery] = useState('')
   const [sortBy, setSortBy] = useState('default')
   const [selectedProduct, setSelectedProduct] = useState(null)
+  const [showOrderModal, setShowOrderModal] = useState(false)
+  const [orderForm, setOrderForm] = useState({
+    name: '',
+    phone: '',
+    address: '',
+    comment: ''
+  })
 
   const categories = ['Все', ...new Set(products.map(p => p.category))]
 
@@ -163,6 +170,71 @@ function Shop() {
 
   const totalPrice = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0)
   const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0)
+
+  // Формирование текста заказа
+  const formatOrderMessage = () => {
+    let message = '🛒 *НОВЫЙ ЗАКАЗ*\n\n'
+    message += `👤 *Клиент:* ${orderForm.name || 'Не указано'}\n`
+    message += `📞 *Телефон:* ${orderForm.phone || 'Не указано'}\n`
+    message += `📍 *Адрес:* ${orderForm.address || 'Не указано'}\n`
+    if (orderForm.comment) {
+      message += `💬 *Комментарий:* ${orderForm.comment}\n`
+    }
+    message += '\n📦 *Товары:*\n'
+    cart.forEach((item, index) => {
+      const quantity = item.quantity || 1
+      const itemTotal = item.price * quantity
+      message += `${index + 1}. ${item.name}\n`
+      message += `   Цена: ${item.price.toLocaleString()} ₽ × ${quantity} = ${itemTotal.toLocaleString()} ₽\n\n`
+    })
+    message += `💰 *ИТОГО: ${totalPrice.toLocaleString()} ₽*\n`
+    message += `📊 *Всего товаров: ${totalItems} шт.*`
+    return message
+  }
+
+  // Отправка в Telegram
+  const sendToTelegram = () => {
+    const message = formatOrderMessage()
+    const telegramUsername = 'SevenArtQ' // Замените на ваш Telegram username или ID
+    const telegramUrl = `https://t.me/${telegramUsername}?text=${encodeURIComponent(message)}`
+    window.open(telegramUrl, '_blank')
+  }
+
+  // Отправка в WhatsApp
+  const sendToWhatsApp = () => {
+    const message = formatOrderMessage()
+    const phoneNumber = '79991234567' // Замените на ваш номер телефона (без +)
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
+    window.open(whatsappUrl, '_blank')
+  }
+
+  // Обработка отправки заказа
+  const handleOrderSubmit = (platform) => {
+    if (!orderForm.name || !orderForm.phone) {
+      alert('Пожалуйста, заполните имя и телефон')
+      return
+    }
+    
+    if (platform === 'telegram') {
+      sendToTelegram()
+    } else if (platform === 'whatsapp') {
+      sendToWhatsApp()
+    }
+    
+    // Очистка формы и корзины после отправки
+    setOrderForm({ name: '', phone: '', address: '', comment: '' })
+    setCart([])
+    setShowOrderModal(false)
+    alert('Заказ отправлен! Мы свяжемся с вами в ближайшее время.')
+  }
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target
+    setOrderForm(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
 
   return (
     <div className="shop">
@@ -308,7 +380,12 @@ function Shop() {
                         <p className="total-price">{totalPrice.toLocaleString()} ₽</p>
                       </div>
                     </div>
-                    <button className="checkout-btn">Оформить заказ</button>
+                    <button 
+                      className="checkout-btn"
+                      onClick={() => setShowOrderModal(true)}
+                    >
+                      Оформить заказ
+                    </button>
                   </>
                 )}
               </div>
@@ -350,6 +427,105 @@ function Shop() {
                   Добавить в корзину
                 </button>
               </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {showOrderModal && (
+        <div className="modal-overlay" onClick={() => setShowOrderModal(false)}>
+          <div className="modal-content order-modal" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={() => setShowOrderModal(false)}>×</button>
+            <div className="order-form-container">
+              <h2 className="order-form-title">Оформление заказа</h2>
+              <p className="order-form-subtitle">Заполните данные для оформления заказа</p>
+              
+              <div className="order-summary">
+                <h3>Ваш заказ:</h3>
+                <div className="order-items-list">
+                  {cart.map((item, index) => {
+                    const quantity = item.quantity || 1
+                    return (
+                      <div key={index} className="order-item-summary">
+                        <span>{item.name} × {quantity}</span>
+                        <span>{(item.price * quantity).toLocaleString()} ₽</span>
+                      </div>
+                    )
+                  })}
+                </div>
+                <div className="order-total-summary">
+                  <strong>Итого: {totalPrice.toLocaleString()} ₽</strong>
+                </div>
+              </div>
+
+              <form className="order-form" onSubmit={(e) => e.preventDefault()}>
+                <div className="form-group">
+                  <label htmlFor="name">Имя *</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={orderForm.name}
+                    onChange={handleInputChange}
+                    placeholder="Введите ваше имя"
+                    required
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="phone">Телефон *</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={orderForm.phone}
+                    onChange={handleInputChange}
+                    placeholder="+7 (999) 123-45-67"
+                    required
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="address">Адрес доставки</label>
+                  <input
+                    type="text"
+                    id="address"
+                    name="address"
+                    value={orderForm.address}
+                    onChange={handleInputChange}
+                    placeholder="Введите адрес доставки"
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="comment">Комментарий к заказу</label>
+                  <textarea
+                    id="comment"
+                    name="comment"
+                    value={orderForm.comment}
+                    onChange={handleInputChange}
+                    placeholder="Дополнительная информация к заказу"
+                    rows="4"
+                  />
+                </div>
+
+                <div className="order-buttons">
+                  <button
+                    type="button"
+                    className="order-btn telegram-btn"
+                    onClick={() => handleOrderSubmit('telegram')}
+                  >
+                    📱 Отправить в Telegram
+                  </button>
+                  <button
+                    type="button"
+                    className="order-btn whatsapp-btn"
+                    onClick={() => handleOrderSubmit('whatsapp')}
+                  >
+                    💬 Отправить в WhatsApp
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
