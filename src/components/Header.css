@@ -108,10 +108,10 @@
     right: 0;
     background: var(--bg-white);
     flex-direction: column;
-    padding: 30px 20px;
+    padding: 0;
     gap: 0;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    transform: translateY(-100%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    transform: translateX(-100%);
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
@@ -119,21 +119,32 @@
     max-height: calc(100vh - 70px);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    border-top: 2px solid var(--accent-color);
   }
 
   .nav-links.active {
-    transform: translateY(0);
+    transform: translateX(0);
     opacity: 1;
     visibility: visible;
   }
 
-
   .nav-links a {
-    padding: 15px 0;
+    padding: 20px 25px;
     border-bottom: 1px solid var(--border-color);
-    font-size: 16px;
+    font-size: 18px;
     width: 100%;
-    text-align: center;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    background: var(--bg-white);
+    font-weight: 600;
+  }
+
+  .nav-links a:hover {
+    background: var(--bg-light);
+    color: var(--accent-color);
+    padding-left: 35px;
   }
 
   .nav-links a:last-child {
@@ -147,6 +158,12 @@
   .nav-links a.active {
     color: var(--accent-color);
     font-weight: 700;
+    background: rgba(212, 175, 55, 0.1);
+    border-left: 4px solid var(--accent-color);
+  }
+
+  .nav-links a.active:hover {
+    background: rgba(212, 175, 55, 0.15);
   }
 
   .menu-toggle {
@@ -156,28 +173,44 @@
     background: none;
     border: none;
     cursor: pointer;
-    padding: 5px;
+    padding: 8px;
     z-index: 101;
-  }
-
-  .menu-toggle span {
-    width: 25px;
-    height: 3px;
-    background: var(--primary-color);
-    border-radius: 2px;
+    border-radius: 6px;
     transition: all 0.3s ease;
   }
 
+  .menu-toggle:hover {
+    background: var(--bg-light);
+  }
+
+  .menu-toggle span {
+    width: 28px;
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    display: block;
+  }
+
+  .menu-toggle.active {
+    background: var(--bg-light);
+  }
+
+  .menu-toggle.active span {
+    background: var(--accent-color);
+  }
+
   .menu-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(8px, 8px);
+    transform: rotate(45deg) translate(9px, 9px);
   }
 
   .menu-toggle.active span:nth-child(2) {
     opacity: 0;
+    transform: translateX(-20px);
   }
 
   .menu-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
+    transform: rotate(-45deg) translate(8px, -8px);
   }
 
   .menu-overlay {

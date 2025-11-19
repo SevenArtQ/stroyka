@@ -5,6 +5,13 @@ import './Header.css'
 function Header() {
   const location = useLocation()
   const [menuOpen, setMenuOpen] = useState(false)
+  
+  // Определяем активную страницу
+  const isHomeActive = location.pathname === '/' || 
+                       location.pathname === '/stroyka' || 
+                       location.pathname === '/stroyka/'
+  const isShopActive = location.pathname === '/shop' || 
+                       location.pathname === '/stroyka/shop'
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen)
@@ -67,14 +74,14 @@ function Header() {
           <div className={`nav-links ${menuOpen ? 'active' : ''}`}>
             <Link 
               to="/" 
-              className={location.pathname === '/' ? 'active' : ''}
+              className={isHomeActive ? 'active' : ''}
               onClick={closeMenu}
             >
               О компании
             </Link>
             <Link 
               to="/shop" 
-              className={location.pathname === '/shop' ? 'active' : ''}
+              className={isShopActive ? 'active' : ''}
               onClick={closeMenu}
             >
               Магазин

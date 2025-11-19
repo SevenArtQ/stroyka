@@ -29,6 +29,16 @@ function RedirectHandler() {
       sessionStorage.removeItem('ghp_redirect')
       // Навигируем на правильный путь
       navigate('/' + redirectPath, { replace: true })
+    } else {
+      // Убеждаемся, что при первой загрузке открывается главная страница
+      const currentPath = window.location.pathname
+      const basename = getBasename()
+      const basePath = basename ? basename : ''
+      
+      // Если путь пустой или только базовый путь, переходим на главную
+      if (currentPath === basePath || currentPath === basePath + '/' || currentPath === '/') {
+        navigate('/', { replace: true })
+      }
     }
   }, [navigate])
   
