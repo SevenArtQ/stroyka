@@ -601,6 +601,11 @@
   color: var(--accent-dark);
 }
 
+.contact-map-wrapper {
+  max-width: 1200px;
+  margin: 0 auto 60px;
+}
+
 .contact-form-wrapper {
   max-width: 800px;
   margin: 0 auto;
@@ -828,6 +833,10 @@
   .form-row {
     grid-template-columns: 1fr;
     gap: 15px;
+  }
+
+  .contact-map-wrapper {
+    margin-bottom: 40px;
   }
 
   .contact-form-wrapper {

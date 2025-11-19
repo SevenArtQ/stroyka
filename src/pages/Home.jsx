@@ -1,4 +1,5 @@
 import './Home.css'
+import YandexMap from '../components/YandexMap'
 
 function Home() {
 
@@ -246,9 +247,12 @@ function Home() {
               <div className="contact-card">
                 <div className="contact-icon icon-location"></div>
                 <h4>Адрес</h4>
-                <p>г. Москва, ул. Строительная, д. 1</p>
-                <a href="#" className="contact-link">Как добраться</a>
+                <p>Конаково, Тверская область, Конаковский район</p>
+                <a href="https://yandex.ru/maps/?text=Конаково,+Тверская+область" target="_blank" rel="noopener noreferrer" className="contact-link">Как добраться</a>
               </div>
+            </div>
+            <div className="contact-map-wrapper">
+              <YandexMap />
             </div>
             <div className="contact-form-wrapper">
               <form 
