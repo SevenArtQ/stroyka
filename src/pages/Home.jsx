@@ -1,13 +1,6 @@
-import { useState, useEffect } from 'react'
 import './Home.css'
 
 function Home() {
-  const [isVisible, setIsVisible] = useState(true)
-
-  useEffect(() => {
-    // Убеждаемся, что контент виден сразу
-    setIsVisible(true)
-  }, [])
 
   const stats = [
     { number: '500+', label: 'Завершенных проектов' },
@@ -53,7 +46,7 @@ function Home() {
     <div className="home">
       <section className="hero">
         <div className="container">
-          <div className={`hero-content ${isVisible ? 'fade-in' : ''}`}>
+          <div className="hero-content">
             <div className="hero-badge">Премиум строительство</div>
             <h1 className="hero-title">СТРОЙКА</h1>
             <p className="hero-subtitle">Профессиональные строительные решения</p>

@@ -82,6 +82,7 @@ button {
 }
 
 .fade-in {
+  /* Анимация для плавного появления (опционально) */
   animation: fadeIn 0.8s ease-in-out;
 }
 
