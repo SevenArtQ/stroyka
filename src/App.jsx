@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-route
 import { useEffect } from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import ScrollToTop from './components/ScrollToTop'
+import ToastContainer from './components/ToastContainer'
 import Home from './pages/Home'
 import Shop from './pages/Shop'
 import './App.css'
@@ -46,6 +48,8 @@ function App() {
           </Routes>
         </main>
         <Footer />
+        <ScrollToTop />
+        <ToastContainer />
       </div>
     </Router>
   )

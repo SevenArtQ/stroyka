@@ -151,6 +151,9 @@ function Shop() {
 
   const addToCart = (product) => {
     setCart([...cart, product])
+    if (window.showToast) {
+      window.showToast(`Товар "${product.name}" добавлен в корзину`, 'success')
+    }
   }
 
   const removeFromCart = (index) => {
@@ -211,7 +214,9 @@ function Shop() {
   // Обработка отправки заказа
   const handleOrderSubmit = (platform) => {
     if (!orderForm.name || !orderForm.phone) {
-      alert('Пожалуйста, заполните имя и телефон')
+      if (window.showToast) {
+        window.showToast('Пожалуйста, заполните имя и телефон', 'error')
+      }
       return
     }
     
@@ -225,7 +230,9 @@ function Shop() {
     setOrderForm({ name: '', phone: '', address: '', comment: '' })
     setCart([])
     setShowOrderModal(false)
-    alert('Заказ отправлен! Мы свяжемся с вами в ближайшее время.')
+    if (window.showToast) {
+      window.showToast('Заказ отправлен! Мы свяжемся с вами в ближайшее время.', 'success')
+    }
   }
 
   const handleInputChange = (e) => {
