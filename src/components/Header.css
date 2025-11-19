@@ -111,17 +111,9 @@
     display: flex !important;
   }
   
-  /* Скрываем обычное меню на мобильных */
+  /* Мобильное меню - скрыто по умолчанию, показывается при активном состоянии */
   .nav-links {
     display: none;
-  }
-  
-  /* Показываем меню только когда оно активно */
-  .nav-links.active {
-    display: flex;
-  }
-
-  .nav-links {
     position: fixed;
     top: 70px;
     left: 0;
@@ -142,7 +134,9 @@
     border-top: 2px solid var(--accent-color);
   }
 
+  /* Показываем меню когда оно активно */
   .nav-links.active {
+    display: flex;
     transform: translateX(0);
     opacity: 1;
     visibility: visible;
